@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\davidTG092020\David\Proyectos\slnControl\WcfSeguridad\bin\app.publish\</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>04/16/2010 14:16:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.pdb">
+      <publishTime>04/16/2010 14:11:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>04/16/2010 14:16:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.pdb">
+      <publishTime>04/16/2010 14:11:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>04/16/2010 14:16:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
+      <publishTime>04/16/2010 13:42:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>04/16/2010 13:42:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+      <publishTime>04/16/2010 13:42:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.pdb">
+      <publishTime>04/16/2010 13:42:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.pdb">
+      <publishTime>04/16/2010 13:42:32</publishTime>
+    </File>
+    <File Include="bin/WcfSeguridad.dll">
+      <publishTime>01/28/2021 12:25:51</publishTime>
+    </File>
+    <File Include="bin/WcfSeguridad.pdb">
+      <publishTime>01/28/2021 12:25:51</publishTime>
+    </File>
+    <File Include="Service1.svc">
+      <publishTime>12/16/2019 08:11:33</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/28/2021 12:25:52</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

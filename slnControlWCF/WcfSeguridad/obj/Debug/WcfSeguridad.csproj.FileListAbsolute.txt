@@ -1,0 +1,17 @@
+D:\Proyectos\slnControl\WcfSeguridad\bin\WcfSeguridad.dll
+D:\Proyectos\slnControl\WcfSeguridad\bin\WcfSeguridad.pdb
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.Unity.dll
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.Unity.Interception.dll
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.EnterpriseLibrary.Common.pdb
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.EnterpriseLibrary.Data.pdb
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.EnterpriseLibrary.Data.xml
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.Unity.pdb
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\Proyectos\slnControl\WcfSeguridad\bin\Microsoft.Practices.Unity.Interception.pdb
+D:\Proyectos\slnControl\WcfSeguridad\obj\Debug\WcfSeguridad.csprojResolveAssemblyReference.cache
+D:\Proyectos\slnControl\WcfSeguridad\obj\Debug\WcfSeguridad.dll
+D:\Proyectos\slnControl\WcfSeguridad\obj\Debug\WcfSeguridad.pdb
