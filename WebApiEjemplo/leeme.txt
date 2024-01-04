@@ -1,0 +1,4 @@
+Microsoft.EntityFrameworkCore.Relational
+Microsoft.EntityFrameworkCore.Tools
+Add-Migration Inicial
+Update-Database
