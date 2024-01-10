@@ -46,15 +46,7 @@ $f3->set(
 
 
 
-// $f3->route('POST /selUsuario', 'Ubicacion_Ctrl->selUsuario');
-
-// $f3->route('POST /davprocedure', 'Dav_Ctrol->davprocedure');
-// $f3->route('POST /Cambiarpassword', 'Dav_Ctrol->Cambiarpassword');
-// $f3->route('GET /getproducto/@id', 'Productos_Ctrl->getProducto');
-
-// $f3->route('POST /delproducto/@id', 'Productos_Ctrl->delProducto');
-
-// $f3->route('POST /listado', 'Productos_Ctrl->listado');
+$f3->route('POST /ValidaUser', 'Dav_Ctrol->ValidaUser');
 
 
 
