@@ -20,45 +20,52 @@ namespace apiAplicacion.Controllers
             _IUsuarioService = UsuarioService;
             _Configuration = Configuration;
         }
-        [HttpPost("CrearToken")]
-        //[Produces("application/json", Type = typeof(Resultado))]
-        public async Task<TokenModelo> PostToken(string plogin, string ppassword)
+        [HttpPost("CrearToken")]        public async Task<TokenModelo> PostToken(string login, string password)
         {
             TokenModelo token = new TokenModelo();
-            var vObjUsuario = await _IUsuarioService.GetNombreUsuario(plogin);
-            //verifica si existe el objeto.
-            if (vObjUsuario != null)
+
+            try
             {
-                var clave = _IUsuarioService.CreaPasswordHash(ppassword, vObjUsuario.Salt);
-                if (clave == vObjUsuario.Clave)
+                var usuario = await _IUsuarioService.GetNombreUsuario(login);
+
+                if (usuario != null)
                 {
-                    var vDate = DateTime.UtcNow;
-                    //define tiempo del token[TODO].
-                    var expirateDate = TimeSpan.FromMinutes(10);
-                    var expireDateTime = vDate.Add(expirateDate);
+                    var hashedPassword = _IUsuarioService.CreaPasswordHash(password, usuario.Salt);
 
-                    string vIssuer = _Configuration.GetSection("AuthentificationSettings").GetChildren().Where(x => x.Key == "Issuer").Select(x => x.Value).FirstOrDefault();
-                    string vAudience = _Configuration.GetSection("AuthentificationSettings").GetChildren().Where(x => x.Key == "Audence").Select(x => x.Value).FirstOrDefault();
-                    string vSigningkey = _Configuration.GetSection("AuthentificationSettings").GetChildren().Where(x => x.Key == "Signingkey").Select(x => x.Value).FirstOrDefault();
+                    if (hashedPassword == usuario.Clave)
+                    {
+                        var currentDate = DateTime.UtcNow;
+                        var expirationTime = TimeSpan.FromMinutes(10);
+                        var expireDateTime = currentDate.Add(expirationTime);
 
-                    //obtiene data
-                    token.token = _IUsuarioService.GenerarToken(vDate, vObjUsuario, expirateDate, vSigningkey, vAudience, vIssuer);
-                    token.tiempoExpira = expireDateTime;
-                    //asigna token.                
+                        // Obtén la configuración una vez.
+                        var authSettings = _Configuration.GetSection("AuthentificationSettings");
+
+                        string issuer = authSettings["Issuer"];
+                        string audience = authSettings["Audence"];
+                        string signingKey = authSettings["Signingkey"];
+
+                        // Genera el token.
+                        token.token = _IUsuarioService.GenerarToken(currentDate, usuario, expirationTime, signingKey, audience, issuer);
+                        token.tiempoExpira = expireDateTime;
+                    }
+                    else
+                    {
+                        // Manejar error de contraseña incorrecta.
+                    }
                 }
                 else
                 {
-                    //vResultado.Notificacion = "Error de contraseña";
-                    //vResultado.Correcto = false;
+                    // Manejar error de usuario no existente.
                 }
             }
-
-
-            else
+            catch (Exception ex)
             {
-                //vResultado.Notificacion = "Usuario no existente";
-                //vResultado.Correcto = false;
+                // Manejar cualquier otra excepción.
+                Console.WriteLine($"Error en la generación del token: {ex.Message}");
+                // Puedes registrar el error o manejarlo según tus necesidades.
             }
+
             return token;
         }
     }

@@ -4,6 +4,7 @@ using apiAplicacion.Services.Clases;
 using apiAplicacion.Services.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+//using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,7 +38,6 @@ namespace apiAplicacion
             services.AddResponseCaching();
             services.AddTransient<IRolRepository, RolRepository>();
             services.AddTransient<IRolService, RolService>();
-
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<IUsuarioService, UsuarioService>();
 
@@ -56,20 +56,46 @@ namespace apiAplicacion
             //
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(o =>
             {
-                o.Audience = audience;
+                //configuracion para la validacion de token
                 o.TokenValidationParameters = new TokenValidationParameters()
                 {
-                    ValidateIssuer = true,
-                    ValidIssuer = issuer,
-                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
                     ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(signingkey))
                 };
             });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "apiAplicacion", Version = "v1" });
+
+                //dato adicional para no usar postman
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme{
+                Name="Authorization",
+                Type= SecuritySchemeType.ApiKey,
+                Scheme= "Bearer",
+                BearerFormat="JWT",
+                In=ParameterLocation.Header                
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement 
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+                            }
+                        },
+                        new String[]{}
+                    }
+                
+                });
             });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

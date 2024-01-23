@@ -19,6 +19,7 @@ namespace apiAplicacion.Controllers
             this._IRolService = iTemp;
         }
         [HttpGet]
+        [Authorize]
         //[Produces("application/json", Type = typeof(Resultado))]        
         public async Task<List<Rol>> GetList()
         {
