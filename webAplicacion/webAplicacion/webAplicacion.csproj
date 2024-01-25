@@ -73,11 +73,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ControlesUsuario\CU_ListaRoles.ascx" />
+    <Content Include="Formularios\wfRol.aspx" />
     <Content Include="frmLogin.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlesUsuario\CU_ListaRoles.ascx.cs">
+      <DependentUpon>CU_ListaRoles.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlesUsuario\CU_ListaRoles.ascx.designer.cs">
+      <DependentUpon>CU_ListaRoles.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\wfRol.aspx.cs">
+      <DependentUpon>wfRol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\wfRol.aspx.designer.cs">
+      <DependentUpon>wfRol.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.aspx.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -88,12 +104,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="mpPrincipal.Master.cs">
+      <DependentUpon>mpPrincipal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mpPrincipal.Master.designer.cs">
+      <DependentUpon>mpPrincipal.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\Models\Resultado.cs" />
+    <Compile Include="Servicios\Models\Rol.cs" />
     <Compile Include="Servicios\Models\usuarioLogin.cs" />
     <Compile Include="Servicios\servicioAutenticar.cs" />
+    <Compile Include="Servicios\servicioRol.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mpPrincipal.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

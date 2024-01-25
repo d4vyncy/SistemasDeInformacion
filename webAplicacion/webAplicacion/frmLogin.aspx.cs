@@ -13,8 +13,20 @@ namespace webAplicacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
             servicioAutenticar oservicioAutenticar = new servicioAutenticar();
-            usuarioLogin ousuarioLogin = oservicioAutenticar.RecuperaToken("dav", "12345");
+            usuarioLogin ousuarioLogin = oservicioAutenticar.RecuperaToken(txtUsuario.Text.ToString(), txtPassword.Text.ToString());
+            
+            if (ousuarioLogin.token != null) {
+                Session.Add("ousuarioLogin", ousuarioLogin);
+                Response.Redirect("./Formularios/wfRol.aspx");
+            }
+            
+
         }
     }
 }
